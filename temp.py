@@ -27,23 +27,23 @@ def main():
 
     while(True):
 
-        # humidity = sense.get_humidity()
-        # temperature = sense.get_temperature()
+        # humidity = str(sense.get_humidity())
+        # temperature = str(sense.get_temperature())
 
-        humidity = 22
-        temperature = 23
+        temperature = str(23.333)
+        humidity = str(22.222)
 
         if humidity is not None and temperature is not None:
-            sleep(2)
+            sleep(1)
 
-            message = str(temperature)
+            topic1 = "temp"
+            topic2 = "humidity"
 
-            topic = "temp"
-            client.publish(topic, message)
+            client.publish(topic1, temperature)
+            client.publish(topic2, humidity)
             
         else:
             print('Failed to get reading. Try again!')	
-            sleep(10)
+            sleep(1)
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
